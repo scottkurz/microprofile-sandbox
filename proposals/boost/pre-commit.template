@@ -25,7 +25,7 @@ ECLIPSE_HOME=***** Fully qualified location of your Eclipse executable *****
 
 # Style file is provided in the root directory of the project as java.prefs
 PROJECT_LOCATION=$PWD
-STYLE_FILE=$PROJECT_LOCATION/java.prefs
+STYLE_FILE=$PROJECT_LOCATION/proposals/boost/java.prefs
 
 echo "Running pre-commit hook: run-eclipse-formatter---------------------"
 echo "Will run eclipse formatter, using: $STYLE_FILE"
@@ -34,7 +34,7 @@ echo "Current dir = $PWD"
 
 statusFile=status.$RANDOM
 
-fileCommand="git status --porcelain 2>&1 > $statusFile"
+fileCommand="git status --porcelain -- :/proposals/boost 2>&1 > $statusFile"
 $(eval $fileCommand)
 
 newList=Y
@@ -53,7 +53,7 @@ do
         echo "File $line is being renamed"
         #
         # find the new file name, handling either the
-        #  old -> new   OR the old => new   output formats of `git status --porcelain`
+        #  old -> new   OR the old => new   output formats of `git status --porcelain -- :/proposals/boost`
         #
         # Note the sed output is a relative path (relative to project location)
         #
