@@ -9,12 +9,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
     <groupId>boost.boosters</groupId>
-    <artifactId>boost-mp20-apis-bom</artifactId>
+    <artifactId>boost-mp21-apis-bom</artifactId>
     <!--  Versioned separately from the main project -->
     <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-	<description>Booster MP20 APIs Bom</description>
+	<description>Booster MP21 APIs Bom</description>
 
     <properties>
         <!--  Java EE specs  -->
@@ -32,17 +32,17 @@
         <jwt-version>1.1</jwt-version>
         <openapi-version>1.0</openapi-version>
         <rest-client-version>1.1</rest-client-version>
-        <opentracing-version>1.1</opentracing-version>
+        <opentracing-version>1.2</opentracing-version>
 
     </properties>
 
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
-	        	<groupId>boost.boosters</groupId>
-				<artifactId>boost-ee7-apis-bom</artifactId>
-    			<version>0.1-SNAPSHOT</version>
-			</dependency>
+	        <dependency>
+	            <groupId>javax.enterprise</groupId>
+	            <artifactId>cdi-api</artifactId>
+	            <version>${cdi-version}</version>
+	        </dependency>
 	        <dependency>
 	            <groupId>javax.ws.rs</groupId>
 	            <artifactId>javax.ws.rs-api</artifactId>
@@ -98,7 +98,7 @@
 	            <artifactId>microprofile-opentracing-api</artifactId>
 	            <version>${opentracing-version}</version>
 	        </dependency>
-	        			<dependency>
+	        <dependency>
 				<groupId>boost.boosters</groupId>
 				<artifactId>jaxrs</artifactId>
 				<version>${jaxrs-version}</version>

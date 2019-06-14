@@ -6,13 +6,13 @@
 
 	<groupId>boost.boosters</groupId>
 	<artifactId>jsonp</artifactId>
-	<version>0.2-SNAPSHOT</version>
+	<version>0.10-SNAPSHOT</version>
 	
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>boost.boosters</groupId>
-				<artifactId>boost-ee8-apis-bom</artifactId>
+				<artifactId>boost-ee7-apis-bom</artifactId>
 				<version>0.1-SNAPSHOT</version>
 				<scope>import</scope>
 				<type>pom</type>

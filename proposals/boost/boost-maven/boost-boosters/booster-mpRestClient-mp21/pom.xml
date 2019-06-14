@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
 	<groupId>boost.boosters</groupId>
-	<artifactId>jsonp</artifactId>
-	<version>0.2-SNAPSHOT</version>
+	<artifactId>mpRestClient</artifactId>
+	<version>0.2.1-SNAPSHOT</version>
 	
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>boost.boosters</groupId>
-				<artifactId>boost-ee8-apis-bom</artifactId>
+				<artifactId>boost-mp21-apis-bom</artifactId>
 				<version>0.1-SNAPSHOT</version>
 				<scope>import</scope>
 				<type>pom</type>
@@ -22,8 +22,8 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>javax.json</groupId>
-			<artifactId>javax.json-api</artifactId>
+		    <groupId>org.eclipse.microprofile.rest.client</groupId>
+            <artifactId>microprofile-rest-client-api</artifactId>
 		</dependency>
 	</dependencies>
 

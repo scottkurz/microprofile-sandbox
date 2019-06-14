@@ -20,10 +20,18 @@
         <module>booster-jpa-ee7</module>
         <module>booster-jpa-ee8</module>
         <module>booster-jsonp-ee8</module>
-        <module>booster-mpConfig-20</module>
-        <module>booster-mpHealth-20</module>
-        <module>booster-mpOpenTracing-20</module>
-        <module>booster-mpRestClient-20</module>
+        <module>booster-mpConfig-mp14</module>
+        <module>booster-mpConfig-mp20</module>
+        <module>booster-mpConfig-mp21</module>
+        <module>booster-mpHealth-mp14</module>
+        <module>booster-mpHealth-mp20</module>
+        <module>booster-mpHealth-mp21</module>
+        <module>booster-mpOpenTracing-mp14</module>
+        <module>booster-mpOpenTracing-mp20</module>
+        <module>booster-mpOpenTracing-mp21</module>
+        <module>booster-mpRestClient-mp14</module>
+        <module>booster-mpRestClient-mp20</module>
+        <module>booster-mpRestClient-mp21</module>
     </modules>
 
 </project>
