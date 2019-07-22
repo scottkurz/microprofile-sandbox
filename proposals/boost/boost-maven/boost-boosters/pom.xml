@@ -18,8 +18,8 @@
         <module>booster-cdi12</module>
         <module>booster-cdi20</module>
         <module>booster-jdbc</module>
-        <module>booster-jpa-ee7</module>
-        <module>booster-jpa-ee8</module>
+        <module>booster-jpa21</module>
+        <module>booster-jpa22</module>
         <module>booster-jsonp10</module>
         <module>booster-jsonp11</module>
         <module>booster-mpConfig13</module>

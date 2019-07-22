@@ -1,12 +1,10 @@
-package io.openliberty.boost.common.boosters;
+package io.openliberty.boost.runtimes.boosters;
 
-import static io.openliberty.boost.common.config.ConfigConstants.*;
+import static boost.common.config.ConfigConstants.*;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.List;
-
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
@@ -14,16 +12,15 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.RestoreSystemProperties;
 import org.junit.rules.TemporaryFolder;
+import boost.runtimes.openliberty.LibertyServerConfigGenerator;
 
-import boost.runtimes.LibertyServerConfigGenerator;
-
-import io.openliberty.boost.common.BoostException;
-import io.openliberty.boost.common.BoostLoggerI;
-import io.openliberty.boost.common.config.BoostProperties;
-import io.openliberty.boost.common.config.BoosterConfigurator;
-import io.openliberty.boost.common.utils.BoosterUtil;
-import io.openliberty.boost.common.utils.CommonLogger;
-import io.openliberty.boost.common.utils.ConfigFileUtils;
+import boost.common.BoostException;
+import boost.common.BoostLoggerI;
+import boost.common.config.BoostProperties;
+import io.openliberty.boost.runtimes.utils.BoosterUtil;
+import io.openliberty.boost.runtimes.utils.CommonLogger;
+import io.openliberty.boost.runtimes.utils.ConfigFileUtils;
+import boost.runtimes.openliberty.boosters.*;
 
 public class JDBCBoosterTest {
 
@@ -59,9 +56,9 @@ public class JDBCBoosterTest {
         // Set compiler target property
         System.setProperty(BoostProperties.INTERNAL_COMPILER_TARGET, "1.6");
 
-        List<AbstractBoosterConfig> boosters = BoosterConfigurator.getBoosterConfigs(BoosterUtil.getJDBCDependency(), logger);
-
-        serverConfig.addFeature(boosters.get(0).getLibertyFeature());
+        LibertyJDBCBoosterConfig libJDBCConfig = new LibertyJDBCBoosterConfig(BoosterUtil.getJDBCDependency(), logger);
+        
+        serverConfig.addFeature(libJDBCConfig.getFeature());
         serverConfig.writeToServer();
 
         String serverXML = outputDir.getRoot().getAbsolutePath() + "/server.xml";
@@ -88,9 +85,9 @@ public class JDBCBoosterTest {
         // Set compiler target property
         System.setProperty(BoostProperties.INTERNAL_COMPILER_TARGET, "1.7");
 
-        List<AbstractBoosterConfig> boosters = BoosterConfigurator.getBoosterConfigs(BoosterUtil.getJDBCDependency(), logger);
-
-        serverConfig.addFeature(boosters.get(0).getLibertyFeature());
+        LibertyJDBCBoosterConfig libJDBCConfig = new LibertyJDBCBoosterConfig(BoosterUtil.getJDBCDependency(), logger);
+        
+        serverConfig.addFeature(libJDBCConfig.getFeature());
         serverConfig.writeToServer();
 
         String serverXML = outputDir.getRoot().getAbsolutePath() + "/server.xml";
@@ -117,9 +114,9 @@ public class JDBCBoosterTest {
         // Set compiler target property
         System.setProperty(BoostProperties.INTERNAL_COMPILER_TARGET, "7");
 
-        List<AbstractBoosterConfig> boosters = BoosterConfigurator.getBoosterConfigs(BoosterUtil.getJDBCDependency(), logger);
+        LibertyJDBCBoosterConfig libJDBCConfig = new LibertyJDBCBoosterConfig(BoosterUtil.getJDBCDependency(), logger);
 
-        serverConfig.addFeature(boosters.get(0).getLibertyFeature());
+        serverConfig.addFeature(libJDBCConfig.getFeature());
         serverConfig.writeToServer();
 
         String serverXML = outputDir.getRoot().getAbsolutePath() + "/server.xml";
@@ -146,9 +143,9 @@ public class JDBCBoosterTest {
         // Set compiler target property
         System.setProperty(BoostProperties.INTERNAL_COMPILER_TARGET, "1.8");
 
-        List<AbstractBoosterConfig> boosters = BoosterConfigurator.getBoosterConfigs(BoosterUtil.getJDBCDependency(), logger);
+        LibertyJDBCBoosterConfig libJDBCConfig = new LibertyJDBCBoosterConfig(BoosterUtil.getJDBCDependency(), logger);
 
-        serverConfig.addFeature(boosters.get(0).getLibertyFeature());
+        serverConfig.addFeature(libJDBCConfig.getFeature());
         serverConfig.writeToServer();
 
         String serverXML = outputDir.getRoot().getAbsolutePath() + "/server.xml";
@@ -175,9 +172,9 @@ public class JDBCBoosterTest {
         // Set compiler target property
         System.setProperty(BoostProperties.INTERNAL_COMPILER_TARGET, "8");
 
-        List<AbstractBoosterConfig> boosters = BoosterConfigurator.getBoosterConfigs(BoosterUtil.getJDBCDependency(), logger);
+        LibertyJDBCBoosterConfig libJDBCConfig = new LibertyJDBCBoosterConfig(BoosterUtil.getJDBCDependency(), logger);
 
-        serverConfig.addFeature(boosters.get(0).getLibertyFeature());
+        serverConfig.addFeature(libJDBCConfig.getFeature());
         serverConfig.writeToServer();
 
         String serverXML = outputDir.getRoot().getAbsolutePath() + "/server.xml";
@@ -204,9 +201,9 @@ public class JDBCBoosterTest {
         // Set compiler target property
         System.setProperty(BoostProperties.INTERNAL_COMPILER_TARGET, "9");
 
-        List<AbstractBoosterConfig> boosters = BoosterConfigurator.getBoosterConfigs(BoosterUtil.getJDBCDependency(), logger);
+        LibertyJDBCBoosterConfig libJDBCConfig = new LibertyJDBCBoosterConfig(BoosterUtil.getJDBCDependency(), logger);
 
-        serverConfig.addFeature(boosters.get(0).getLibertyFeature());
+        serverConfig.addFeature(libJDBCConfig.getFeature());
         serverConfig.writeToServer();
 
         String serverXML = outputDir.getRoot().getAbsolutePath() + "/server.xml";
@@ -233,9 +230,9 @@ public class JDBCBoosterTest {
         // Set compiler target property
         System.setProperty(BoostProperties.INTERNAL_COMPILER_TARGET, "11");
 
-        List<AbstractBoosterConfig> boosters = BoosterConfigurator.getBoosterConfigs(BoosterUtil.getJDBCDependency(), logger);
+        LibertyJDBCBoosterConfig libJDBCConfig = new LibertyJDBCBoosterConfig(BoosterUtil.getJDBCDependency(), logger);
 
-        serverConfig.addFeature(boosters.get(0).getLibertyFeature());
+        serverConfig.addFeature(libJDBCConfig.getFeature());
         serverConfig.writeToServer();
 
         String serverXML = outputDir.getRoot().getAbsolutePath() + "/server.xml";

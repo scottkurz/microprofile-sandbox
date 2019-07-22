@@ -8,7 +8,7 @@
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
-package io.openliberty.boost.common.config;
+package io.openliberty.boost.runtimes.config;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -29,16 +29,21 @@ import org.junit.rules.TemporaryFolder;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import boost.runtimes.LibertyServerConfigGenerator;
+import boost.runtimes.openliberty.LibertyServerConfigGenerator;
 
-import io.openliberty.boost.common.utils.BoostUtil;
-import io.openliberty.boost.common.utils.CommonLogger;
-import io.openliberty.boost.common.utils.ConfigFileUtils;
-import io.openliberty.boost.common.BoostLoggerI;
-import io.openliberty.boost.common.boosters.JDBCBoosterConfig;
+import boost.common.config.BoostProperties;
+import boost.common.utils.BoostUtil;
+import io.openliberty.boost.runtimes.utils.CommonLogger;
+import io.openliberty.boost.runtimes.utils.ConfigFileUtils;
+import boost.common.BoostLoggerI;
+import boost.common.boosters.JDBCBoosterConfig;
 
-import static io.openliberty.boost.common.config.ConfigConstants.*;
-import static io.openliberty.boost.common.utils.DOMUtils.getDirectChildrenByTag;
+import static boost.common.config.ConfigConstants.*;
+import static io.openliberty.boost.runtimes.utils.DOMUtils.getDirectChildrenByTag;
+import boost.runtimes.openliberty.boosters.LibertyJDBCBoosterConfig;
+import java.util.*;
+import io.openliberty.boost.runtimes.utils.BoosterUtil;
+
 
 public class LibertyServerConfigGeneratorTest {
 
@@ -93,7 +98,9 @@ public class LibertyServerConfigGeneratorTest {
         datasourceProperties.put(BoostProperties.DATASOURCE_DATABASE_NAME, DERBY_DB);
         datasourceProperties.put(BoostProperties.DATASOURCE_CREATE_DATABASE, "create");
 
-        serverConfig.addDataSource(JDBCBoosterConfig.DERBY, datasourceProperties);
+        //serverConfig.addDataSource(JDBCBoosterConfig.DERBY, datasourceProperties);
+        LibertyJDBCBoosterConfig jdbcConfig = new LibertyJDBCBoosterConfig(BoosterUtil.getJDBCDependency(), logger);
+        jdbcConfig.addServerConfig(serverConfig);
         serverConfig.writeToServer();
 
         // Parse server.xml
@@ -174,11 +181,11 @@ public class LibertyServerConfigGeneratorTest {
         LibertyServerConfigGenerator serverConfig = new LibertyServerConfigGenerator(
                 outputDir.getRoot().getAbsolutePath(), logger);
 
-        // Add basic properties
-        Properties datasourceProperties = new Properties();
-        datasourceProperties.put(BoostProperties.DATASOURCE_URL, DB2_URL);
-
-        serverConfig.addDataSource(JDBCBoosterConfig.DB2, datasourceProperties);
+        Map<String, String> jdbcDependency = BoosterUtil.getJDBCDependency();
+        jdbcDependency.put(JDBCBoosterConfig.DB2_DEPENDENCY, "the db2 dependency version");
+        System.setProperty(BoostProperties.DATASOURCE_URL, DB2_URL);
+        LibertyJDBCBoosterConfig jdbcConfig = new LibertyJDBCBoosterConfig(jdbcDependency, logger);
+        jdbcConfig.addServerConfig(serverConfig);
         serverConfig.writeToServer();
 
         // Parse server.xml
@@ -249,13 +256,13 @@ public class LibertyServerConfigGeneratorTest {
         LibertyServerConfigGenerator serverConfig = new LibertyServerConfigGenerator(
                 outputDir.getRoot().getAbsolutePath(), logger);
 
-        // Add basic properties
-        Properties datasourceProperties = new Properties();
-        datasourceProperties.put(BoostProperties.DATASOURCE_URL, MYSQL_URL);
-
-        serverConfig.addDataSource(JDBCBoosterConfig.MYSQL, datasourceProperties);
+        Map<String, String> jdbcDependency = BoosterUtil.getJDBCDependency();
+        jdbcDependency.put(JDBCBoosterConfig.MYSQL_DEPENDENCY, "the mysql dependency version");
+        System.setProperty(BoostProperties.DATASOURCE_URL, MYSQL_URL);
+        LibertyJDBCBoosterConfig jdbcConfig = new LibertyJDBCBoosterConfig(jdbcDependency, logger);
+        jdbcConfig.addServerConfig(serverConfig);
         serverConfig.writeToServer();
-
+        
         File serverXml = new File(outputDir.getRoot().getAbsolutePath() + "/server.xml");
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();

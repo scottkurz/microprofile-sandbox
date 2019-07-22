@@ -29,9 +29,19 @@ public abstract class AbstractBoosterConfig {
 
     public static final String RUNTIMES_GROUP_ID = "boost.runtimes";
     public static final String BOOSTERS_GROUP_ID = "boost.boosters";
-    public static final String EE_7_VERSION = "0.1-SNAPSHOT";
-    public static final String EE_8_VERSION = "0.2-SNAPSHOT";
-    public static final String MP_20_VERSION = "0.2-SNAPSHOT";
+    public static final String CDI_VERSION_12 = "0.1.2-SNAPSHOT";
+    public static final String CDI_VERSION_20 = "0.2.0-SNAPSHOT";
+    public static final String JAXRS_VERSION_20 = "0.2.0-SNAPSHOT";
+    public static final String JAXRS_VERSION_21 = "0.2.1-SNAPSHOT";
+    public static final String JSONP_VERSION_10 = "0.1.0-SNAPSHOT";
+    public static final String JSONP_VERSION_11 = "0.1.1-SNAPSHOT";
+    public static final String JPA_VERSION_21 = "0.2.1-SNAPSHOT";
+    public static final String JPA_VERSION_22 = "0.2.2-SNAPSHOT";
+    public static final String MP_HEALTH_VERSION_10 = "0.1.0-SNAPSHOT";
+    public static final String MP_CONFIG_VERSION_13 = "0.1.3-SNAPSHOT";
+    public static final String MP_OPENTRACING_VERSION_11 = "0.1.1-SNAPSHOT";
+    public static final String MP_OPENTRACING_VERSION_12 = "0.1.2-SNAPSHOT";
+    public static final String MP_RESTCLIENT_VERSION_11 = "0.1.1-SNAPSHOT";
 
     @Retention(RetentionPolicy.RUNTIME)
     @Target(ElementType.TYPE)

@@ -1,11 +1,11 @@
-package io.openliberty.boost.common.utils;
+package io.openliberty.boost.runtimes.utils;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import io.openliberty.boost.common.BoostException;
-import io.openliberty.boost.common.boosters.AbstractBoosterConfig;
-import io.openliberty.boost.common.boosters.JDBCBoosterConfig;
+import boost.common.BoostException;
+import boost.common.boosters.AbstractBoosterConfig;
+import boost.common.boosters.JDBCBoosterConfig;
 
 public class BoosterUtil {
 

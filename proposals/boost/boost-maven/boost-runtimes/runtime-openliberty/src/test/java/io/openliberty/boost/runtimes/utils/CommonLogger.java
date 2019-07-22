@@ -1,6 +1,6 @@
-package io.openliberty.boost.common.utils;
+package io.openliberty.boost.runtimes.utils;
 
-import io.openliberty.boost.common.BoostLoggerI;
+import boost.common.BoostLoggerI;
 
 public class CommonLogger implements BoostLoggerI {
     
